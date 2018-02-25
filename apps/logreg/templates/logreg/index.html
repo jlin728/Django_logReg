@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login and Registration</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'logreg/style.css' %}">
+</head>
+<body>
+<div class= "wrapper">
+
+    <h1>Login</h1>
+<p>Please enter your information:</p>
+ 
+<form action="/login" method="POST"> 
+        {% csrf_token %}
+        <input type="text" name="email" placeholder="Email"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="submit" value="Login">
+    </form>
+
+<br>
+<hr>
+<h1>Registration</h1>
+<p>Please enter your information:</p>
+    <form action="/register" method="POST"> 
+        {% csrf_token %}
+        <input type="text" name="first" placeholder="First Name"><br>
+        <input type="text" name="last" placeholder="Last Name"><br>
+        <input type="text" name="email" placeholder="Email"><br>
+        Date of Birth<br><input type="date" name="dob" min="1970-01-01" max="2018-01-01" class="date"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="password" name="confirm" placeholder="Confirm Password"><br>
+        <input type="submit" value="Register">
+    </form>
+{% if messages %}
+<!-- <ul class = "messages"> -->
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+<!-- </ul> -->
+{% endif %}
+
+
+
+</div>
+</body>
+</html>

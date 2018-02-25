@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Suite Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'logreg/style.css' %}">
+</head>
+<body>
+    <h1>Whoooooo's Hoooooooome?!?!?!</h1>
+
+    {{ request.session.user_id }}
+    {{ user.first }}
+
+    <br>
+    <a href='/logout'><button>Logout</button></a>
+</body>
+</html>
